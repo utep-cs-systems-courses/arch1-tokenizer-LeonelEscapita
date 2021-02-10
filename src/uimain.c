@@ -11,11 +11,9 @@ int main()
       printf("enter your string $ ");
       scanf("%s", sentence);
       printf(" ");
-
       
       printf("quit? 1 for yes, 0 for no ");
       scanf("%d", &q);
-
       switch(q){
       case 1:
 	printf("good-bye!");
@@ -23,6 +21,7 @@ int main()
       case 0:
 	break;
       default:
+	printf("printed something wrong");
 	goto done;
       }
         

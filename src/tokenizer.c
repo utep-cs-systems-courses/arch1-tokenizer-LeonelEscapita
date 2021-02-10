@@ -20,8 +20,13 @@ int non_space_char(char c)
   return 0;
 }
 
-char *word_start(char *s)
+char *word_start(char *s)//pointer to a specific char in the sentence, keep going until you find a new word!!!!
 {
+  if (*s == '\0')
+    {
+      return '\0';
+    }
+  
   return 'a';
 }
 
