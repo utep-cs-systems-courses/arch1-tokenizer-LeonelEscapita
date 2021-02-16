@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
@@ -78,6 +79,7 @@ char *copy_str(char *inStr, short len)
 
 char **tokenize(char* str)
 {
+  printf("inside tokenize");
   int word_count = count_words(*str);
   char **token_ptr = malloc((word_count + 1) * sizeof(char*));
 
@@ -96,7 +98,10 @@ char **tokenize(char* str)
 
   void print_tokens(char **tokens)
   {
-    printf("asdf");
+    while(tokens != '\0') {
+      printf(*tokens);
+      tokens++;
+    }
   }
 
 
