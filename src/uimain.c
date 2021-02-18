@@ -4,17 +4,15 @@
 
 int main()
 {
-  char *s;
   char sentence[100];
   int q;
   while (1)
     {
-      printf("enter your string $ ");
+      printf("enter your string $");
       scanf("%s", sentence);
-
-      s = &sentence;
-
-      print_tokens(tokenize(s));
+      
+      char **d = tokenize(sentence);
+      print_tokens(d);
       
       printf("quit? 1 for yes, 0 for no ");
       scanf("%d", &q);
