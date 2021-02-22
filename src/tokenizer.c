@@ -56,13 +56,10 @@ int count_words(char *s)
 {
   int count = 0;
   
-  while (1) {
-      if (*s == '\0') {
-	  printf("returned here");
-	  printf("\n");
-	  return count;
-	}
-      
+  while (*s) {
+
+      printf("%s", s);
+    
       s = word_start(s);
       
       if (*s == '\0') {
@@ -70,12 +67,15 @@ int count_words(char *s)
 	  printf("\n");
 	  return count;
 	}
-      
+ 
       s = word_terminator(s);
       count++;
       printf("%d", count);
       printf("\n");
+     
     }
+  return count;
+  
 }
 
 char *copy_str(char *inStr, short len)

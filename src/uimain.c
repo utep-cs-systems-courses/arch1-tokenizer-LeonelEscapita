@@ -5,29 +5,30 @@
 int main()
 {
   char sentence[100];
-  int q;
-  while (1)
+  char q;
+  while(1)
     {
       printf("enter your string $");
-      scanf("%s", sentence);
-      
-      char **d = tokenize(sentence);
-      print_tokens(d);
+      fgets(sentence, 100, stdin);
+      printf("%s", sentence);
+
+       count_words(sentence);
+       // char **d = tokenize(sentence);
+       // print_tokens(d);
       
       printf("quit? 1 for yes, 0 for no ");
-      scanf("%d", &q);
+      q = getchar();
       switch(q){
-      case 1:
+      case '1':
 	printf("good-bye! \n");
 	goto done;
-      case 0:
+      case '0':
 	break;
       default:
 	printf("printed something wrong");
 	goto done;
       }
         
-	
     }
  done:
   return 0;
