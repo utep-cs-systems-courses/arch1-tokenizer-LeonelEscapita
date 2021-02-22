@@ -5,7 +5,7 @@
 int main()
 {
   char sentence[100];
-  int q;
+  char q;
   while(1)
     {
       printf("enter your string $");
@@ -19,13 +19,13 @@ int main()
 
       //printf("%s\n",*d);
       
-      printf("quit? 1 for yes, 0 for no");
-      scanf("%d", q);
+      printf("quit? 1 for yes, 0 for no $");
+      q = getchar();
       switch(q){
-      case 1:
+      case '1':
 	printf("good-bye! \n");
 	goto done;
-      case 0:
+      case '0':
 	break;
       default:
 	printf("printed something wrong");
