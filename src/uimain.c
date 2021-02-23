@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 
 int main()
 {
   char sentence[100];
   char q;
-  while(1)
+  while (1)
     {
       printf("enter your string $");
       fgets(sentence, 100, stdin);
-      printf("%s", sentence); //gets sentence
+      printf("%s\n", sentence); //gets sentence
 
        //count_words(sentence);
       char **d = tokenize(sentence); //saves **d with double pointer returned by tokenize
@@ -19,16 +20,14 @@ int main()
 
       //printf("%s\n",*d);
       
-      printf("quit? 1 for yes, 0 for no $");
+      printf("quit? 1 for yes $");
       q = getchar();
       switch(q){
       case '1':
-	printf("good-bye! \n");
+	printf("good-bye!\n");
 	goto done;
-      case '0':
-	break;
       default:
-	printf("printed something wrong");
+	printf("printed something wrong\n");
 	goto done;
       }
         
