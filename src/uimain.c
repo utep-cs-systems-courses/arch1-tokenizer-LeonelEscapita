@@ -20,12 +20,16 @@ int main()
 
       //printf("%s\n",*d);
       
-      printf("quit? 1 for yes $");
+      printf("quit? 1 for yes, 0 for no $");
       q = getchar();
-      switch(q){
+      getchar(); //catch new line
+      switch (q){
       case '1':
 	printf("good-bye!\n");
 	goto done;
+      case '0':
+	
+	break;
       default:
 	printf("printed something wrong\n");
 	goto done;

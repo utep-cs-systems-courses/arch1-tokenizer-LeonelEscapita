@@ -119,7 +119,7 @@ char **tokenize(char* str)
 void free_tokens(char **tokens)
 {
   char **copy_tokens = tokens; //keeps a copy of the first allocation being pointed to
-  while(*tokens) { //clears up all of the copy[] memory allocation inside of tokens 
+  while (*tokens) { //clears up all of the copy[] memory allocation inside of tokens 
     free(*tokens);
     tokens++;
    }
@@ -128,7 +128,7 @@ void free_tokens(char **tokens)
 
 void print_tokens(char **tokens)
 {
-  while(*tokens) { //while *tokens is pointing to a word, print that word
+  while (*tokens) { //while *tokens is pointing to a word, print that word
     printf("%s\n",*tokens);
     tokens++; //points to next word, remember **tokens points to the individual char
    }

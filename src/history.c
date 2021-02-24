@@ -2,26 +2,20 @@
 #include <stdlib.h>
 #include "history.h"
 
-struct s_Item {
-  int id;
-  char *str;
-  struct s_Item *next;
-}
-
-struct s_List {
-  struct s_Item *root;
-}
-
 List* init_history()
 {
-  return 0;
-  
+  List *list = malloc(sizeof(List));
+  return list;
 }
 
 void add_history(List *list, char *str)
 {
-  printf("history works");
-
+  if ((*list).root == NULL) {
+    Item *item = malloc(sizeof(Item));
+    (*item).id = 0;
+    (*item).str = *str;
+  }
+  printf("Add history works");
 }
 
 char *get_history(List *list, int id)
@@ -35,7 +29,7 @@ void print_history(List *list)
   printf("History goes here");
 }
 
-void free_history(List *list)
-{
-  free(*list);
-}
+//void free_history(List *list)
+//{
+//free(list);
+//}
