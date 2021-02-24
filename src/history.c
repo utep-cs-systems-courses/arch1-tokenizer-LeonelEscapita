@@ -10,10 +10,12 @@ List* init_history()
 
 void add_history(List *list, char *str)
 {
-  if ((*list).root == NULL) {
+  if (!list->root) {
     Item *item = malloc(sizeof(Item));
     (*item).id = 0;
-    (*item).str = *str;
+    //edit this to have a copy of str
+    (*item).str = str;
+    //append this to the list afterwards
   }
   printf("Add history works");
 }
