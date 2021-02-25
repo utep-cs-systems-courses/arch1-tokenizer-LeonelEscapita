@@ -19,7 +19,7 @@ void add_history(List *list, char *str)
   }
   else {
     int current_id = 0;
-    Item *temp_item = list->root
+    Item *temp_item = list->root;
     while (temp_item->next) {
       current_id++;
       temp_item = temp_item->next;
@@ -38,7 +38,7 @@ char *get_history(List *list, int id)
   Item *temp_item = list->root;
   while (temp_item->next) {
     if (id == temp_item->id) {
-      char *str2 = temp_next->str; 
+      char *str2 = temp_item->str; 
       printf("Given the ID, the string is %s\n", str2);
     }
       temp_item = temp_item->next;
@@ -49,7 +49,7 @@ void print_history(List *list)
 {
   Item *temp_item = list->root;
   while (temp_item->next) {
-    char *str2 = temp_next->str; 
+    char *str2 = temp_item->str; 
     printf("%s\n", str2);
     temp_item = temp_item->next;
   }
@@ -59,8 +59,8 @@ void free_history(List *list)
 {
   Item *temp_item = list->root;
   while (temp_item) {
-    free(*temp_item);
+    free(temp_item);
     temp_item = temp_item->next;
   }
-  free(*list);
+  free(list);
 }
