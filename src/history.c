@@ -13,25 +13,54 @@ void add_history(List *list, char *str)
   if (!list->root) {
     Item *item = malloc(sizeof(Item));
     (*item).id = 0;
-    //edit this to have a copy of str
-    (*item).str = str;
-    //append this to the list afterwards
+    char *str2 = str;
+    (*item).str = str2;
+    list->root = item;
+  }
+  else {
+    int current_id = 0;
+    Item *temp_item = list->root
+    while (temp_item->next) {
+      current_id++;
+      temp_item = temp_item->next;
+      }
+    Item *item = malloc(sizeof(Item));
+    (*item).id = current_id;
+    char *str2 = str;
+    (*item).str = str2;
+    temp_item->next = item;
   }
   printf("Add history works");
 }
 
 char *get_history(List *list, int id)
 {
-  char *p;
-  return p;
+  Item *temp_item = list->root;
+  while (temp_item->next) {
+    if (id == temp_item->id) {
+      char *str2 = temp_next->str; 
+      printf("Given the ID, the string is %s\n", str2);
+    }
+      temp_item = temp_item->next;
+  }
 }
 
 void print_history(List *list)
 {
-  printf("History goes here");
+  Item *temp_item = list->root;
+  while (temp_item->next) {
+    char *str2 = temp_next->str; 
+    printf("%s\n", str2);
+    temp_item = temp_item->next;
+  }
 }
 
-//void free_history(List *list)
-//{
-//free(list);
-//}
+void free_history(List *list)
+{
+  Item *temp_item = list->root;
+  while (temp_item) {
+    free(*temp_item);
+    temp_item = temp_item->next;
+  }
+  free(*list);
+}
