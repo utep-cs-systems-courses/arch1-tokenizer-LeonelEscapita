@@ -1,6 +1,7 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
 
+void commands(char *str);
 
 /* Return true (non-zero) if c is a whitespace characer
    ('\t' or ' ').  
