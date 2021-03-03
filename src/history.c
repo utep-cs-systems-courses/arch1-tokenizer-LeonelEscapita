@@ -3,25 +3,25 @@
 #include "history.h"
 #include "tokenizer.h"
 
-int find_len(char *str)
+int find_len(char *str)//finds length of a string
 {
   int len = 0;
-  while (*str) {
+  while (*str) {//iterate using pointers
       len++;
       str++;
   }
   return len;
 }
 
-List* init_history()
+List* init_history()//initializes a list by allocating memory for it
 {
   List *list = malloc(sizeof(List));
   return list;
 }
 
-void add_history(List *list, char *str)
+void add_history(List *list, char *str)//adds item struct to list depending if empty or not
 {
-  if (!list->root) {
+  if (!list->root) {//if root is non-existent
     Item *item = malloc(sizeof(Item));
     (*item).id = 0;
     char *str2 = copy_str(str, find_len(str));
@@ -29,7 +29,7 @@ void add_history(List *list, char *str)
     list->root = item;
     //printf("inside");
   }
-  else {
+  else {//if root exists
     int current_id = 1;
     Item *temp_item = list->root;
     while (temp_item->next) {
@@ -43,17 +43,17 @@ void add_history(List *list, char *str)
     (*item).next = 0;
     temp_item->next = item;
   }
-  printf("Add history works\n");
+  //printf("Add history works\n");
 }
 
-char *get_history(List *list, int id)
+char *get_history(List *list, int id)//find item based on id
 {
   Item *temp_item = list->root;
   while (temp_item) {
-    printf("inside node%d\n", temp_item->id);
+    //printf("inside node%d\n", temp_item->id);
     if (id == temp_item->id) {
       char *str2 = temp_item->str; 
-      printf("Given the ID, the string is %s\n", str2);
+      //printf("Given the ID, the string is %s\n", str2);
       return str2;
     }
     temp_item = temp_item->next;
@@ -61,9 +61,9 @@ char *get_history(List *list, int id)
   return 0;
 }
 
-void print_history(List *list)
+void print_history(List *list)//print all of the items in list
 {
-  printf("printing..\n");
+  //printf("printing..\n");
   Item *temp_item = list->root;
   while (temp_item) {
     char *str2 = temp_item->str; 
@@ -72,7 +72,7 @@ void print_history(List *list)
   }
 }
 
-void free_history(List *list)
+void free_history(List *list)//frees the memory for list and items
 {
   Item *temp_item = list->root;
   while (temp_item) {

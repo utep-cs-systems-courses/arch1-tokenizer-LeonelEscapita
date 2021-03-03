@@ -2,26 +2,6 @@
 #include <stdlib.h>
 #include "tokenizer.h"
 
-void commands(char *str)
-{
-  if(*str == '!') {
-    str++;
-    if(*str == 'h') {
-      c ='3';
-    }
-    if(*str == 'q') {
-      c = '2';
-    }
-    else {
-      c = '1';
-    }
-  }
-  else {
-    c = '0';
-  }
-  c = '3';
-}
-
 int space_char(char c)
 {
   //  printf("At space_char %c",c);
